@@ -1,0 +1,122 @@
+tick=     1       pc=0000 | jmp 52                           | r0=0 r1=0 r2=0 r3=0 sp=511 rp=767 Z=0 N=0
+tick=     3       pc=0034 | li r0, 16                        | r0=0 r1=0 r2=0 r3=0 sp=511 rp=767 Z=0 N=0
+tick=     5       pc=0035 | store r0, 0(r29)                 | r0=16 r1=0 r2=0 r3=0 sp=511 rp=767 Z=0 N=0
+tick=     7       pc=0036 | addi r29, r29, -1                | r0=16 r1=0 r2=0 r3=0 sp=511 rp=767 Z=0 N=0
+tick=     9       pc=0037 | call 2                           | r0=16 r1=0 r2=0 r3=0 sp=510 rp=767 Z=0 N=0
+tick=    11       pc=0002 | addi r29, r29, 1                 | r0=16 r1=0 r2=0 r3=0 sp=510 rp=766 Z=0 N=0
+tick=    13       pc=0003 | load r6, 0(r29)                  | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=0
+tick=    15       pc=0004 | load r7, 0(r6)                   | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=0
+tick=    17       pc=0005 | li r8, 0                         | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=0
+tick=    19       pc=0006 | li r10, -1                       | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=0
+tick=    21       pc=0007 | cmp r8, r7                       | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=0
+tick=    23       pc=0008 | jz r0, 15                        | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    25       pc=0009 | add r0, r6, r8                   | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    27       pc=000a | addi r0, r0, 1                   | r0=16 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    29       pc=000b | load r9, 0(r0)                   | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    31       pc=000c | store r9, 0(r10)                 | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    33       pc=000d | addi r8, r8, 1                   | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    35       pc=000e | jmp 7                            | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    37       pc=0007 | cmp r8, r7                       | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    39       pc=0008 | jz r0, 15                        | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    41       pc=0009 | add r0, r6, r8                   | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    43       pc=000a | addi r0, r0, 1                   | r0=17 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    45       pc=000b | load r9, 0(r0)                   | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    47       pc=000c | store r9, 0(r10)                 | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    49       pc=000d | addi r8, r8, 1                   | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    51       pc=000e | jmp 7                            | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    53       pc=0007 | cmp r8, r7                       | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    55       pc=0008 | jz r0, 15                        | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    57       pc=0009 | add r0, r6, r8                   | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    59       pc=000a | addi r0, r0, 1                   | r0=18 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    61       pc=000b | load r9, 0(r0)                   | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    63       pc=000c | store r9, 0(r10)                 | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    65       pc=000d | addi r8, r8, 1                   | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    67       pc=000e | jmp 7                            | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    69       pc=0007 | cmp r8, r7                       | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    71       pc=0008 | jz r0, 15                        | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    73       pc=0009 | add r0, r6, r8                   | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    75       pc=000a | addi r0, r0, 1                   | r0=19 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    77       pc=000b | load r9, 0(r0)                   | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    79       pc=000c | store r9, 0(r10)                 | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    81       pc=000d | addi r8, r8, 1                   | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    83       pc=000e | jmp 7                            | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    85       pc=0007 | cmp r8, r7                       | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    87       pc=0008 | jz r0, 15                        | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    89       pc=0009 | add r0, r6, r8                   | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    91       pc=000a | addi r0, r0, 1                   | r0=20 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    93       pc=000b | load r9, 0(r0)                   | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    95       pc=000c | store r9, 0(r10)                 | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    97       pc=000d | addi r8, r8, 1                   | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=    99       pc=000e | jmp 7                            | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   101       pc=0007 | cmp r8, r7                       | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   103       pc=0008 | jz r0, 15                        | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   105       pc=0009 | add r0, r6, r8                   | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   107       pc=000a | addi r0, r0, 1                   | r0=21 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   109       pc=000b | load r9, 0(r0)                   | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   111       pc=000c | store r9, 0(r10)                 | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   113       pc=000d | addi r8, r8, 1                   | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   115       pc=000e | jmp 7                            | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   117       pc=0007 | cmp r8, r7                       | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   119       pc=0008 | jz r0, 15                        | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   121       pc=0009 | add r0, r6, r8                   | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   123       pc=000a | addi r0, r0, 1                   | r0=22 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   125       pc=000b | load r9, 0(r0)                   | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   127       pc=000c | store r9, 0(r10)                 | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   129       pc=000d | addi r8, r8, 1                   | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   131       pc=000e | jmp 7                            | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   133       pc=0007 | cmp r8, r7                       | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   135       pc=0008 | jz r0, 15                        | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   137       pc=0009 | add r0, r6, r8                   | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   139       pc=000a | addi r0, r0, 1                   | r0=23 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   141       pc=000b | load r9, 0(r0)                   | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   143       pc=000c | store r9, 0(r10)                 | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   145       pc=000d | addi r8, r8, 1                   | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   147       pc=000e | jmp 7                            | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   149       pc=0007 | cmp r8, r7                       | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   151       pc=0008 | jz r0, 15                        | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   153       pc=0009 | add r0, r6, r8                   | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   155       pc=000a | addi r0, r0, 1                   | r0=24 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   157       pc=000b | load r9, 0(r0)                   | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   159       pc=000c | store r9, 0(r10)                 | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   161       pc=000d | addi r8, r8, 1                   | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   163       pc=000e | jmp 7                            | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   165       pc=0007 | cmp r8, r7                       | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   167       pc=0008 | jz r0, 15                        | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   169       pc=0009 | add r0, r6, r8                   | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   171       pc=000a | addi r0, r0, 1                   | r0=25 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   173       pc=000b | load r9, 0(r0)                   | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   175       pc=000c | store r9, 0(r10)                 | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   177       pc=000d | addi r8, r8, 1                   | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   179       pc=000e | jmp 7                            | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   181       pc=0007 | cmp r8, r7                       | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   183       pc=0008 | jz r0, 15                        | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   185       pc=0009 | add r0, r6, r8                   | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   187       pc=000a | addi r0, r0, 1                   | r0=26 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   189       pc=000b | load r9, 0(r0)                   | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   191       pc=000c | store r9, 0(r10)                 | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   193       pc=000d | addi r8, r8, 1                   | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   195       pc=000e | jmp 7                            | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   197       pc=0007 | cmp r8, r7                       | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   199       pc=0008 | jz r0, 15                        | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   201       pc=0009 | add r0, r6, r8                   | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   203       pc=000a | addi r0, r0, 1                   | r0=27 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   205       pc=000b | load r9, 0(r0)                   | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   207       pc=000c | store r9, 0(r10)                 | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   209       pc=000d | addi r8, r8, 1                   | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   211       pc=000e | jmp 7                            | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   213       pc=0007 | cmp r8, r7                       | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   215       pc=0008 | jz r0, 15                        | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   217       pc=0009 | add r0, r6, r8                   | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   219       pc=000a | addi r0, r0, 1                   | r0=28 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   221       pc=000b | load r9, 0(r0)                   | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   223       pc=000c | store r9, 0(r10)                 | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   225       pc=000d | addi r8, r8, 1                   | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   227       pc=000e | jmp 7                            | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   229       pc=0007 | cmp r8, r7                       | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=0 N=1
+tick=   231       pc=0008 | jz r0, 15                        | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=1 N=0
+tick=   233       pc=000f | ret                              | r0=29 r1=0 r2=0 r3=0 sp=511 rp=766 Z=1 N=0
+tick=   235       pc=0038 | halt                             | r0=29 r1=0 r2=0 r3=0 sp=511 rp=767 Z=1 N=0
+  [HALT tick=235]
+
+=== OUTPUT (13 chars) ===
+Hello, World!
