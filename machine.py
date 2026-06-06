@@ -20,7 +20,7 @@ from isa import (
 SP = 29
 RP = 30
 MAX_TICKS = 10_000_000
-
+LOG_LIMIT = 500
 
 class HaltException(Exception):
     pass
@@ -112,7 +112,7 @@ class ControlUnit:
         r = self.dp.regs
         isr = " [ISR]" if self.in_interrupt else "      "
         self.log_lines.append(
-            f"tick={self.tick_count:6d}{isr} pc={self.dp.pc - 1:04x} | {mn:<32} |"
+            f"tick={self.tick_count}{isr} pc={self.dp.pc - 1:04x} | {mn:<32} |"
             f" r0={r[0]} r1={r[1]} r2={r[2]} r3={r[3]}"
             f" sp={r[SP]} rp={r[RP]} Z={int(self.dp.flag_z)} N={int(self.dp.flag_n)}"
         )
@@ -236,6 +236,9 @@ class ControlUnit:
             self.log_lines.append(f"  [HALT tick={self.tick_count}]")
 
         if log_out:
+            if len(self.log_lines) > LOG_LIMIT:
+                self.log_lines = self.log_lines[:LOG_LIMIT]
+                self.log_lines.append(f"  [LOG TRUNCATED at {LOG_LIMIT} lines]")
             output = "".join(self.dp.output_buffer)
             self.log_lines.append(f"\n=== OUTPUT ({len(output)} chars) ===")
             self.log_lines.append(output)

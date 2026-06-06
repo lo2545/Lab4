@@ -1,10 +1,12 @@
 import subprocess
 import sys
+import os
 
 PYTHON = sys.executable
 
 
 def translate_and_run(forth_file: str, input_file: str | None = None) -> str:
+    os.makedirs("out", exist_ok=True)
     bin_file = forth_file.replace(".forth", ".bin").replace("programs/", "out/")
     result = subprocess.run(
         [PYTHON, "translator.py", forth_file, bin_file],

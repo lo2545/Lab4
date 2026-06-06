@@ -10,7 +10,7 @@
 
 ### Общая характеристика
 
-Реализован минималистичный диалект Forth с обратной польской записью (RPN). Стековая машина, все данные — 32-битные знаковые целые, процедуры как первоклассные объекты через execution token.
+Реализован минималистичный диалект Forth. Стековая машина, все данные — 32-битные знаковые целые.
 
 Язык поддерживает:
 - процедуры (`: name ... ;`);
@@ -18,7 +18,6 @@
 - циклы (`begin`/`until`, `begin`/`while`/`repeat`);
 - переменные (`variable`);
 - строки в формате Pascal (`." text"`);
-- execution token (`'` и `execute`);
 - обработчики прерываний (`interrupt:`);
 - встроенные слова для арифметики, стека, памяти, ввода-вывода.
 
@@ -32,7 +31,6 @@ statement   ::= word | number | string_lit
               | "if" { statement } [ "else" { statement } ] "then"
               | "begin" { statement } "until"
               | "begin" { statement } "while" { statement } "repeat"
-              | "'" name
 string_lit  ::= '."' text '"'
 number      ::= [ "-" ] digit { digit }
 name        ::= letter { letter | digit | "-" | "?" }
@@ -69,8 +67,6 @@ name        ::= letter { letter | digit | "-" | "?" }
 | `>r` | `a →` | положить на стек возвратов |
 | `r>` | `→ a` | снять со стека возвратов |
 | `r@` | `→ a` | копировать вершину стека возвратов |
-| `'` word | `→ addr` | execution token — адрес процедуры |
-| `execute` | `addr →` | вызвать по адресу |
 | `halt` | — | остановка |
 | `iret` | — | возврат из обработчика прерывания |
 
@@ -450,28 +446,27 @@ python machine.py <program.bin> [input.txt] [log.txt]
 
 ### Управляющие сигналы
 
-| Сигнал | Назначение |
-|--------|-----------|
-| `pc_wr` | запись нового значения в PC |
-| `ir_wr` | запись инструкции в IR при fetch |
-| `reg_wr` | запись результата в регистровый файл |
-| `mem_read` | чтение из data_mem |
+| Сигнал      | Назначение |
+|-------------|-----------|
+| `reg_write` | запись результата в регистровый файл |
+| `mem_read`  | чтение из data_mem |
 | `mem_write` | запись в data_mem |
-| `alu_op` | код операции ALU |
-| `pc_src` | выбор следующего PC: pc+1, imm, ret_addr, saved_pc |
+| `alu_op`    | код операции ALU |
+| `pc_src`    | выбор следующего PC: pc+1, imm, ret_addr, saved_pc |
 | `flag_write` | обновление Z, N |
-| `vec_op` | код векторной операции |
+| `vec_op`    | код векторной операции |
 | `isr_enter` | вход в обработчик прерывания |
-| `isr_exit` | выход через iret |
+| `isr_exit`  | выход через iret |
 
 ### Особенности реализации
 
 - **Tick-accurate**: каждая инструкция — 2 такта (fetch + execute), `halt` — 1 такт.
 - **Гарвардская архитектура**: `instr_mem` и `data_mem` — независимые массивы Python.
 - **Hardwired CU**: логика декодирования реализована как цепочка `if/elif` по опкоду — прямое отражение комбинационной схемы дешифратора.
+- **FSM**: процессор имеет три состояния — FETCH (выборка инструкции), EXECUTE (выполнение), HALT (останов). FETCH и EXECUTE реализованы как последовательные вызовы `fetch_decode()` и `execute()` внутри цикла `while`. HALT — терминальное состояние, достигается через исключение `HaltException` при выполнении инструкции `halt`.
 - Стек данных Forth — `data_mem[0x0100–0x01FF]`, SP инициализируется в `0x01FF`.
 - Стек возвратов — `data_mem[0x0200–0x02FF]`, RP инициализируется в `0x02FF`.
-- Журнал ограничен 1000 строк для предотвращения огромных файлов при бесконечных циклах.
+- Журнал ограничен 500 строками.
 
 ---
 
@@ -493,14 +488,6 @@ python machine.py <program.bin> [input.txt] [log.txt]
 Все golden tests хранятся в `golden_tests/<name>/` и включают: `.forth`, `.bin`, `.dbg`, `.log`, `input.txt` (где нужен).
 
 ### Демонстрация особенностей варианта
-
-**Forth — execution token:**
-```forth
-: square  dup * ;
-: apply   ' square execute ;
-: main    5 apply __print_int halt ;
-```
-`' square` кладёт адрес на стек, `execute` вызывает по адресу.
 
 **trap — прерывания:**
 
@@ -525,10 +512,8 @@ golden_tests/prob2/input.txt:
 ### Запуск тестов
 
 ```bash
-mkdir out
 pytest test_golden.py -v
 ruff check isa.py translator.py machine.py test_golden.py
-mypy isa.py translator.py machine.py
 ```
 
 ---

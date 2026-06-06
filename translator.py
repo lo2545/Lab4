@@ -514,20 +514,6 @@ class Translator:
                 self.emit(encode_i(Opcode.LOAD, TMP0, TMP0, 0))
                 self.push(TMP0)
                 continue
-
-            if tok == "'":
-                word_name = tokens[i]
-                i += 1
-                fixup = self.emit(encode_i(Opcode.LI, TMP0, 0, 0))
-                self.fixups.append((fixup, word_name, Opcode.LI, TMP0, 0))
-                self.push(TMP0)
-                continue
-
-            if tok == "execute":
-                self.pop(TMP0)
-                self.emit_fixup(Opcode.CALL, 0, 0, "__execute_trampoline")
-                continue
-
             if tok == "halt":
                 self.emit(encode_i(Opcode.HALT, 0, 0, 0))
                 continue
@@ -651,10 +637,6 @@ class Translator:
         self.emit(encode_i(Opcode.JMP, 0, 0, ploop))
         pdone = len(self.instructions)
         self.instructions[fixup_pdone] = encode_i(Opcode.JZ, 0, 0, pdone)
-        self.emit(encode_i(Opcode.RET, 0, 0, 0))
-
-        self.labels["__execute_trampoline"] = len(self.instructions)
-        self.emit(encode_r(Opcode.MOV, TMP0, TMP0, 0))
         self.emit(encode_i(Opcode.RET, 0, 0, 0))
 
     def translate(self, src: str) -> tuple[list[int], list[int]]:
